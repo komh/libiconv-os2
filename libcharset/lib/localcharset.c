@@ -124,7 +124,7 @@ get_charset_aliases (void)
   cp = charset_aliases;
   if (cp == NULL)
     {
-#if !(defined DARWIN7 || defined VMS || defined WIN32_NATIVE || defined __CYGWIN__)
+#if !(defined DARWIN7 || defined VMS || defined WIN32_NATIVE || defined __CYGWIN__ || defined OS2)
       const char *dir;
       const char *base = "charset.alias";
       char *file_name;
@@ -338,6 +338,64 @@ get_charset_aliases (void)
            "CP54936" "\0" "GB18030" "\0"
            "CP65001" "\0" "UTF-8" "\0";
 # endif
+# if defined OS2
+      /* To avoid the troubles of installing a separate file in the same
+         directory as the DLL and of retrieving the DLL's directory at
+         runtime, simply inline the aliases here.  */
+
+      cp = "bg_BG" "\0" "CP1251" "\0"
+           "ca_ES" "\0" "CP850" "\0"
+           "cs_SZ" "\0" "CP852" "\0"
+           "da_DK" "\0" "CP850" "\0"
+           "de_AT" "\0" "CP850" "\0"
+           "de_CH" "\0" "CP850" "\0"
+           "de_DE" "\0" "CP850" "\0"
+           "el_GR" "\0" "CP869" "\0"
+           "en_AU" "\0" "CP850" "\0"
+           "en_CA" "\0" "CP850" "\0"
+           "en_GB" "\0" "CP850" "\0"
+           "en_IE" "\0" "CP850" "\0"
+           "en_NZ" "\0" "CP850" "\0"
+           "en_US" "\0" "CP850" "\0"
+           "en_ZA" "\0" "CP850" "\0"
+           "es_ES" "\0" "CP850" "\0"
+           "es_LA" "\0" "CP850" "\0"
+           "et_EE" "\0" "CP922" "\0"
+           "fi_FI" "\0" "CP850" "\0"
+           "fr_BE" "\0" "CP850" "\0"
+           "fr_CA" "\0" "CP850" "\0"
+           "fr_CH" "\0" "CP850" "\0"
+           "fr_FR" "\0" "CP850" "\0"
+           "hr_HR" "\0" "CP852" "\0"
+           "hu_HU" "\0" "CP852" "\0"
+           "is_IS" "\0" "CP850" "\0"
+           "it_CH" "\0" "CP850" "\0"
+           "it_IT" "\0" "CP850" "\0"
+           "iw_IL" "\0" "CP862" "\0"
+           "ja_JP" "\0" "CP943" "\0"
+           "ko_KR" "\0" "CP949" "\0"
+           "lt_LT" "\0" "ISO-8859-13" "\0"
+           "lv_LV" "\0" "ISO-8859-13" "\0"
+           "mk_MK" "\0" "CP855" "\0"
+           "nl_BE" "\0" "CP850" "\0"
+           "nl_NL" "\0" "CP850" "\0"
+           "no_NO" "\0" "CP850" "\0"
+           "pl_PL" "\0" "CP852" "\0"
+           "pt_BR" "\0" "CP850" "\0"
+           "pt_PT" "\0" "CP850" "\0"
+           "ro_RO" "\0" "CP852" "\0"
+           "ru_RU" "\0" "CP866" "\0"
+           "sh_BA" "\0" "CP852" "\0"
+           "sk_SK" "\0" "CP852" "\0"
+           "sl_SI" "\0" "CP852" "\0"
+           "sq_AL" "\0" "CP850" "\0"
+           "sr_SP" "\0" "CP855" "\0"
+           "sv_SE" "\0" "CP850" "\0"
+           "th_TH" "\0" "CP874" "\0"
+           "tr_TR" "\0" "CP857" "\0"
+           "zh_CN" "\0" "GB2312" "\0"
+           "zh_TW" "\0" "CP950" "\0";
+# endif
 #endif
 
       charset_aliases = cp;
@@ -474,6 +532,8 @@ locale_charset (void)
   static char buf[2 + 10 + 1];
   ULONG cp[3];
   ULONG cplen;
+  int use_cp = 0;
+  int from_lang = 0;
 
   /* Allow user to override the codeset, as set in the operating system,
      with standard language environment variables.  */
@@ -482,7 +542,10 @@ locale_charset (void)
     {
       locale = getenv ("LC_CTYPE");
       if (locale == NULL || locale[0] == '\0')
+      {
         locale = getenv ("LANG");
+        from_lang = 1;
+      }
     }
   if (locale != NULL && locale[0] != '\0')
     {
@@ -505,11 +568,16 @@ locale_charset (void)
               return buf;
             }
         }
+      else
+        use_cp = from_lang;
 
       /* Resolve through the charset.alias file.  */
       codeset = locale;
     }
   else
+    use_cp = 1;
+
+  if (use_cp)
     {
       /* OS/2 has a function returning the locale's codepage as a number.  */
       if (DosQueryCp (sizeof (cp), cp, &cplen))
