@@ -32,6 +32,7 @@
 #define USE_OSF1
 #define USE_DOS
 #define USE_ZOS
+#define USE_OS2
 #define USE_EXTRA
 
 struct loop_funcs {};

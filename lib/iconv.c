@@ -38,6 +38,7 @@
 #define USE_OSF1
 #define USE_DOS
 #define USE_ZOS
+#define USE_OS2
 #define USE_EXTRA
 #else
 /*
@@ -57,6 +58,11 @@
    easier interoperability between z/OS and Linux/s390.  */
 #if defined(__MVS__) || (defined(__linux__) && (defined(__s390__) || defined(__s390x__)))
 #define USE_ZOS
+#endif
+#ifdef __OS2__
+#define USE_OS2
+#define USE_AIX
+#define USE_DOS
 #endif
 #endif
 
@@ -162,6 +168,8 @@ static struct encoding const all_encodings[] = {
 # include "aliases_sysosf1.h"
 #elif defined __sun
 # include "aliases_syssolaris.h"
+#elif defined __OS2__
+# include "aliases_sysos2.h"
 #else
 # include "aliases.h"
 #endif
@@ -171,7 +179,7 @@ static struct encoding const all_encodings[] = {
  * Defines
  *   const struct alias * aliases2_lookup (const char *str);
  */
-#if defined(USE_AIX) || defined(USE_OSF1) || defined(USE_DOS) || defined(USE_ZOS) || defined(USE_EXTRA) /* || ... */
+#if defined(USE_AIX) || defined(USE_OSF1) || defined(USE_DOS) || defined(USE_ZOS) || defined(USE_OS2) || defined(USE_EXTRA) /* || ... */
 struct stringpool2_t {
 #define S(tag,name,encoding_index) char stringpool_##tag[sizeof(name)];
 #include "aliases2.h"
@@ -514,6 +522,8 @@ static const unsigned short all_canonical[] = {
 # include "canonical_sysosf1.h"
 #elif defined __sun
 # include "canonical_syssolaris.h"
+#elif defined __OS2__
+# include "canonical_sysos2.h"
 #else
 # include "canonical.h"
 #endif
@@ -537,6 +547,13 @@ static const unsigned short all_canonical[] = {
 #ifdef USE_ZOS
 # include "canonical_zos.h"
 #endif
+#ifdef USE_OS2
+# if defined __OS2__
+#  include "canonical_os2_sysos2.h"
+# else
+#  include "canonical_os2.h"
+# endif
+#endif
 #ifdef USE_EXTRA
 # include "canonical_extra.h"
 #endif
@@ -548,6 +565,8 @@ static const unsigned short all_canonical[] = {
 # include "canonical_local_sysosf1.h"
 #elif defined __sun
 # include "canonical_local_syssolaris.h"
+#elif defined __OS2__
+# include "canonical_local_sysos2.h"
 #else
 # include "canonical_local.h"
 #endif

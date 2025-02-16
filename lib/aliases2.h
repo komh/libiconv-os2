@@ -37,6 +37,13 @@
 #ifdef USE_ZOS
 # include "aliases_zos.h"
 #endif
+#ifdef USE_OS2
+# if defined __OS2__
+#  include "aliases_os2_sysos2.h"
+# else
+#  include "aliases_os2.h"
+# endif
+#endif
 #ifdef USE_EXTRA
 # include "aliases_extra.h"
 #endif

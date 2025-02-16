@@ -96,6 +96,10 @@ int main (int argc, char* argv[])
 #ifdef USE_ZOS
 #include "encodings_zos.def"
 #endif
+#ifdef USE_OS2
+#include "encodings_aix.def"
+#include "encodings_dos.def"
+#endif
 #ifdef USE_EXTRA
 #include "encodings_extra.def"
 #endif
