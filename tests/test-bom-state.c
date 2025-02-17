@@ -57,7 +57,8 @@ static void test_one_input (const char *fromcode,
   size_t inbytesleft = input_size;
   char *outbuf = outbuf1;
   size_t outbytesleft = sizeof (outbuf1);
-  size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
+  size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
+                      &outbuf, &outbytesleft);
   if (!(ret == (size_t)(-1) && errno == E2BIG && outbytesleft == 0))
     abort ();
   if (!(memcmp (outbuf1, "\xe2\x94\xa6", 3) == 0)) /* should be U+2526 */
@@ -71,7 +72,8 @@ static void test_one_input (const char *fromcode,
   /* Convert the second character.  */
   outbuf = outbuf2;
   outbytesleft = sizeof (outbuf2);
-  ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
+  ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
+               &outbuf, &outbytesleft);
   if (!(ret == 0 && outbytesleft == 0))
     abort ();
   if (!(memcmp (outbuf2, "\xe2\x98\xa9", 3) == 0)) /* should be U+2629 */
