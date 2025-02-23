@@ -1,217 +1,108 @@
-<!-- Creator     : groff version 1.22.3 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="generator" content="groff -Thtml, see www.gnu.org">
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <meta name="Content-Style" content="text/css">
-<style type="text/css">
-       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
-       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
-       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
-       h1      { text-align: center }
-</style>
-<title>ICONV</title>
-
 </head>
 <body>
-
-<h1 align="center">ICONV</h1>
-
 <a href="#NAME">NAME</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
 <a href="#DESCRIPTION">DESCRIPTION</a><br>
 <a href="#ENVIRONMENT">ENVIRONMENT</a><br>
 <a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#iconv -f ISO-8859-1 -t UTF-8">iconv -f ISO-8859-1 -t UTF-8</a><br>
+<a href="#iconv -f KOI8-R --byte-subst="<0x%x>"">iconv -f KOI8-R --byte-subst="<0x%x>"</a><br>
 <a href="#CONFORMING TO">CONFORMING TO</a><br>
 <a href="#SEE ALSO">SEE ALSO</a><br>
+<!-- Creator     : groff version 1.15-j0.99  -->
+ -->
+<!-- Total number of pages: 2 -->
+<!-- Page: 1 -->
+<!-- left  margin: 100 -->
+<!-- right margin: 750 -->
+<a name="NAME"></a><h2>NAME</h2><p><font size=3>iconv - character set conversion</p>
+<a name="SYNOPSIS"></a><h2>SYNOPSIS</h2><p><font size=3>iconv [<font size=3><I>OPTION</I><font size=3>...] [<font size=3><B>-f</B> <font size=3><I>encoding</I><font size=3>] [<font size=3><B>-t</B> <font size=3><I>encoding</I><font size=3>] [<font size=3><I>inputfile</I> <font size=3>...]<br>
+iconv <font size=3><B>-l</p>
+</B><a name="DESCRIPTION"></a><h2>DESCRIPTION</h2><p><font size=3>The <font size=3><B>iconv</B> <font size=3>program converts text from one encoding to another encoding. More precisely, it converts <font size=3><B>from</B> <font size=3>the encoding given for the <font size=3><B>-f</B> <font size=3>option <font size=3><B>to</B> <font size=3>the encoding given for the <font size=3><B>-t</B> <font size=3>option. Either of these encodings defaults to the encoding of the current locale. All the <font size=3><I>inputfile</I><font size=3>s are read and converted in turn; if no <font size=3><I>inputfile</I> <font size=3>is given, the stan- dard input is used. The converted text is printed to standard output.</p>
 
-<hr>
-
-
-<h2>NAME
-<a name="NAME"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">iconv &minus;
-character set conversion</p>
-
-<h2>SYNOPSIS
-<a name="SYNOPSIS"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">iconv
-[<i>OPTION</i>...] [<b>&minus;f</b> <i>encoding</i>]
-[<b>&minus;t</b> <i>encoding</i>] [<i>inputfile</i> ...]
-<br>
-iconv <b>&minus;l</b></p>
-
-<h2>DESCRIPTION
-<a name="DESCRIPTION"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">The
-<b>iconv</b> program converts text from one encoding to
-another encoding. More precisely, it converts <b>from</b>
-the encoding given for the <b>&minus;f</b> option <b>to</b>
-the encoding given for the <b>&minus;t</b> option. Either of
-these encodings defaults to the encoding of the current
-locale. All the <i>inputfile</i>s are read and converted in
-turn; if no <i>inputfile</i> is given, the standard input is
-used. The converted text is printed to standard output.</p>
-
-<p style="margin-left:11%; margin-top: 1em">The encodings
-permitted are system dependent. For the libiconv
-implementation, they are listed in the iconv_open(3) manual
-page.</p>
-
-<p style="margin-left:11%; margin-top: 1em">Options
-controlling the input and output format: <b><br>
-&minus;f</b> <i>encoding</i>,
-<b>&minus;&minus;from&minus;code=</b><i>encoding</i></p>
-
-<p style="margin-left:22%;">Specifies the encoding of the
-input.</p>
-
-<p style="margin-left:11%;"><b>&minus;t</b>
-<i>encoding</i>,
-<b>&minus;&minus;to&minus;code=</b><i>encoding</i></p>
-
-<p style="margin-left:22%;">Specifies the encoding of the
-output.</p>
-
-<p style="margin-left:11%; margin-top: 1em">Options
-controlling conversion problems:</p>
-
-<table width="100%" border="0" rules="none" frame="void"
-       cellspacing="0" cellpadding="0">
+<table width="100%"  rules="none"  frame="none"  cols="5">
 <tr valign="top" align="left">
-<td width="11%"></td>
-<td width="3%">
-
-
-<p><b>&minus;c</b></p></td>
-<td width="8%"></td>
-<td width="78%">
-
-
-<p>When this option is given, characters that cannot be
-converted are silently discarded, instead of leading to a
-conversion error.</p></td></tr>
+<td valign="top" align="left"  width="92.9231%">
+<p><font size=3>The encodings permitted are system dependent. For the libiconv implementation, they are listed<br>
+iconv_open(3) manual page.</p>
+<p><font size=3>Options controlling the input and output format:</p>
+<p><font size=3><B>-f</B> <font size=3><I>encoding</I><font size=3>, <font size=3><B>--from-code=</B><font size=3><I>encoding<br>
+<span style=" text-indent: 1.3000in;"></span></I>Specifies the encoding of the input.</p>
+<p><font size=3><B>-t</B> <font size=3><I>encoding</I><font size=3>, <font size=3><B>--to-code=</B><font size=3><I>encoding<br>
+<span style=" text-indent: 1.3000in;"></span></I>Specifies the encoding of the output.</p>
+<p><font size=3>Options controlling conversion problems:</p>
+</td>
+<td valign="top" align="left"  width="1.3846%">
+</td>
+<td valign="top" align="left"  width="1.5385%">
+<p><font size=3>in</p>
+</td>
+<td valign="top" align="left"  width="1.3846%">
+</td>
+<td valign="top" align="left"  width="2.7692%">
+<p><font size=3>the</p>
+</td>
+</tr>
 </table>
+<p> <font size=3><B>-c</B> <font size=3>When this option is given, characters that cannot be converted are silently discarded,<br>
+<span style=" text-indent: 1.3000in;"></span>instead of leading to a conversion error.</p>
+<p><font size=3><B>--unicode-subst=</B><font size=3><I>formatstring<br>
+<span style=" text-indent: 1.3000in;"></span></I>When this option is given, Unicode characters that cannot be represented in the target<br>
+<span style=" text-indent: 1.3000in;"></span>encoding are replaced with a placeholder string that is constructed from the given <font size=3><I>format-<br>
+<span style=" text-indent: 1.3000in;"></span>string</I><font size=3>, applied to the Unicode code point. The <font size=3><I>formatstring</I> <font size=3>must be a format string in the<br>
+<span style=" text-indent: 1.3000in;"></span>same format as for the <font size=3><I>printf</I> <font size=3>command or the <font size=3><I>printf()</I> <font size=3>function, taking either no argument<br>
+<span style=" text-indent: 1.3000in;"></span>or exactly one unsigned integer argument.</p>
+<p><font size=3><B>--byte-subst=</B><font size=3><I>formatstring<br>
+<span style=" text-indent: 1.3000in;"></span></I>When this option is given, bytes in the input that are not valid in the source encoding are<br>
+<span style=" text-indent: 1.3000in;"></span>replaced with a placeholder string that is constructed from the given <font size=3><I>formatstring</I><font size=3>, applied<br>
+<span style=" text-indent: 1.3000in;"></span>to the byte's value. The <font size=3><I>formatstring</I> <font size=3>must be a format string in the same format as for the<br>
+<span style=" text-indent: 1.3000in;"></span><I>printf</I> <font size=3>command or the <font size=3><I>printf()</I> <font size=3>function, taking either no argument or exactly one unsigned<br>
+<span style=" text-indent: 1.3000in;"></span>integer argument.</p>
+<p><font size=3><B>--widechar-subst=</B><font size=3><I>formatstring<br>
+<span style=" text-indent: 1.3000in;"></span></I>When this option is given, wide characters in the input that are not valid in the source<br>
+<span style=" text-indent: 1.3000in;"></span>encoding are replaced with a placeholder string that is constructed from the given <font size=3><I>format-<br>
+<span style=" text-indent: 1.3000in;"></span>string</I><font size=3>, applied to the byte's value. The <font size=3><I>formatstring</I> <font size=3>must be a format string in the same for-<br>
+<span style=" text-indent: 1.3000in;"></span>mat as for the <font size=3><I>printf</I> <font size=3>command or the <font size=3><I>printf()</I> <font size=3>function, taking either no argument or exactly<br>
+<span style=" text-indent: 1.3000in;"></span>one unsigned integer argument.</p>
+<p><font size=3>Options controlling error output:</p>
 
-
-<p style="margin-left:11%;"><b>&minus;&minus;unicode&minus;subst=</b><i>formatstring</i></p>
-
-<p style="margin-left:22%;">When this option is given,
-Unicode characters that cannot be represented in the target
-encoding are replaced with a placeholder string that is
-constructed from the given <i>formatstring</i>, applied to
-the Unicode code point. The <i>formatstring</i> must be a
-format string in the same format as for the <i>printf</i>
-command or the <i>printf()</i> function, taking either no
-argument or exactly one unsigned integer argument.</p>
-
-
-<p style="margin-left:11%;"><b>&minus;&minus;byte&minus;subst=</b><i>formatstring</i></p>
-
-<p style="margin-left:22%;">When this option is given,
-bytes in the input that are not valid in the source encoding
-are replaced with a placeholder string that is constructed
-from the given <i>formatstring</i>, applied to the
-byte&rsquo;s value. The <i>formatstring</i> must be a format
-string in the same format as for the <i>printf</i> command
-or the <i>printf()</i> function, taking either no argument
-or exactly one unsigned integer argument.</p>
-
-
-<p style="margin-left:11%;"><b>&minus;&minus;widechar&minus;subst=</b><i>formatstring</i></p>
-
-<p style="margin-left:22%;">When this option is given, wide
-characters in the input that are not valid in the source
-encoding are replaced with a placeholder string that is
-constructed from the given <i>formatstring</i>, applied to
-the byte&rsquo;s value. The <i>formatstring</i> must be a
-format string in the same format as for the <i>printf</i>
-command or the <i>printf()</i> function, taking either no
-argument or exactly one unsigned integer argument.</p>
-
-<p style="margin-left:11%; margin-top: 1em">Options
-controlling error output: <b><br>
-&minus;s</b>, <b>&minus;&minus;silent</b></p>
-
-<p style="margin-left:22%;">When this option is given,
-error messages about invalid or unconvertible characters are
+<table width="100%"  rules="none"  frame="none"  cols="3">
+<tr valign="top" align="left">
+<td valign="top" align="left"  width="11.2308%">
+<p><font size=3><B>-s</B><font size=3>, <font size=3><B>--silent</p>
+</B></td>
+<td valign="top" align="left"  width="8.7692%">
+</td>
+<td valign="top" align="left"  width="80.0000%">
+<p><font size=3>When this option is given, error messages about invalid or unconvertible characters are<br>
 omitted, but the actual converted text is unaffected.</p>
-
-<p style="margin-left:11%; margin-top: 1em">The <b>iconv
-&minus;l</b> or <b>iconv &minus;&minus;list</b> command
-lists the names of the supported encodings, in a system
-dependent format. For the libiconv implementation, the names
-are printed in upper case, separated by whitespace, and
-alias names of an encoding are listed on the same line as
-the encoding itself.</p>
-
-<h2>ENVIRONMENT
-<a name="ENVIRONMENT"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">Conversion
-from/to EBCDIC encodings can be modified in a specific way:
-If the environment variable <b>ICONV_EBCDIC_ZOS_UNIX</b> is
-set to a non-empty value, the EBCDIC newline 0x15 will get
-mapped to LF instead of NEL.</p>
-
-<h2>EXAMPLES
-<a name="EXAMPLES"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em"><b>iconv
-&minus;f ISO&minus;8859&minus;1 &minus;t UTF&minus;8</b></p>
-
-<p style="margin-left:22%;">converts input from the old
-West-European encoding ISO&minus;8859&minus;1 to
-Unicode.</p>
-
-<p style="margin-left:11%; margin-top: 1em"><b>iconv
-&minus;f KOI8&minus;R
-&minus;&minus;byte&minus;subst=&quot;&lt;0x%x&gt;&quot; <br>
-
-&minus;&minus;unicode&minus;subst=&quot;&lt;U+%04X&gt;&quot;</b></p>
-
-<p style="margin-left:22%;">converts input from the old
-Russian encoding KOI8&minus;R to the locale encoding,
-substituting an angle bracket notation with hexadecimal
-numbers for invalid bytes and for valid but unconvertible
-characters.</p>
-
-<p style="margin-left:11%;"><b>iconv
-&minus;&minus;list</b></p>
-
-<p style="margin-left:22%;">lists the supported
-encodings.</p>
-
-<h2>CONFORMING TO
-<a name="CONFORMING TO"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">POSIX:2024</p>
-
-<h2>SEE ALSO
-<a name="SEE ALSO"></a>
-</h2>
-
-
-
-<p style="margin-left:11%; margin-top: 1em"><b>iconv_open</b>(3),
-<b>locale</b>(7)</p>
-<hr>
+</td>
+</tr>
+</table>
+<p><font size=3>The <font size=3><B>iconv -l</B> <font size=3>or <font size=3><B>iconv --list</B> <font size=3>command lists the names of the supported encodings, in a system dependent format. For the libiconv implementation, the names are printed in upper case, separated by whitespace, and alias names of an encoding are listed on the same line as the encoding itself.</p>
+<a name="ENVIRONMENT"></a><h2>ENVIRONMENT</h2><p><font size=3>Conversion from/to EBCDIC encodings can be modified in a specific way: If the environment variable <font size=3><B>ICONV_EBCDIC_ZOS_UNIX</B> <font size=3>is set to a non-empty value, the EBCDIC newline 0x15 will get mapped to LF instead of NEL.</p>
+<a name="EXAMPLES"></a><h2>EXAMPLES</h2><a name="iconv -f ISO-8859-1 -t UTF-8"></a><h2>iconv -f ISO-8859-1 -t UTF-8</h2><p><span style=" text-indent: 1.3000in;"></span><font size=3>converts input from the old West-European encoding ISO-8859-1 to Unicode.</p>
+<a name="iconv -f KOI8-R --byte-subst="<0x%x>""></a><h2>iconv -f KOI8-R --byte-subst="<0x%x>"</h2><p><span style=" text-indent: 0.4800in;"></span><font size=3><B>--unicode-subst="&lt;U+%04X&gt;"</p>
+</B>
+<table width="100%"  rules="none"  frame="none"  cols="2">
+<tr valign="top" align="left">
+<td valign="top" align="left"  width="20.0000%">
+</td>
+<td valign="top" align="left"  width="80.0000%">
+<p><font size=3>converts input from the old Russian encoding KOI8-R to the locale encoding, substituting an angle bracket notation with hexadecimal numbers for invalid bytes and for valid but unconvertible characters.</p>
+</td>
+</tr>
+</table>
+<br>
+<!-- Page: 2  -->
+<!-- left  margin: 100 -->
+<!-- right margin: 398 -->
+<p><font size=3><B>iconv --list</B> <font size=3>lists the supported encodings.</p>
+<a name="CONFORMING TO"></a><h2>CONFORMING TO</h2><p><font size=3>POSIX:2024</p>
+<a name="SEE ALSO"></a><h2>SEE ALSO</h2><p><font size=3><B>iconv_open</B><font size=3>(3), <font size=3><B>locale</B><font size=3>(7)<br>
+</p>
 </body>
 </html>

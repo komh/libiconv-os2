@@ -1,132 +1,33 @@
-<!-- Creator     : groff version 1.22.3 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="generator" content="groff -Thtml, see www.gnu.org">
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <meta name="Content-Style" content="text/css">
-<style type="text/css">
-       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
-       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
-       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
-       h1      { text-align: center }
-</style>
-<title>ICONV_OPEN_INTO</title>
-
 </head>
 <body>
-
-<h1 align="center">ICONV_OPEN_INTO</h1>
-
 <a href="#NAME">NAME</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="##include <iconv.h>">#include <iconv.h></a><br>
 <a href="#DESCRIPTION">DESCRIPTION</a><br>
 <a href="#RETURN VALUE">RETURN VALUE</a><br>
 <a href="#ERRORS">ERRORS</a><br>
 <a href="#CONFORMING TO">CONFORMING TO</a><br>
 <a href="#SEE ALSO">SEE ALSO</a><br>
-
-<hr>
-
-
-<h2>NAME
-<a name="NAME"></a>
-</h2>
-
-
-
-<p style="margin-left:11%; margin-top: 1em">iconv_open_into
-&minus; initialize descriptor for character set
-conversion</p>
-
-<h2>SYNOPSIS
-<a name="SYNOPSIS"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em"><b>#include
-&lt;iconv.h&gt;</b></p>
-
-<p style="margin-left:11%; margin-top: 1em"><b>int
-iconv_open_into (const char*</b> <i>tocode</i><b>, const
-char*</b> <i>fromcode</i><b>, <br>
-iconv_allocation_t*</b> <i>resultp</i><b>);</b></p>
-
-<h2>DESCRIPTION
-<a name="DESCRIPTION"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">The
-<b>iconv_open_into</b> function initializes a conversion
-descriptor suitable for converting byte sequences from
-character encoding <i>fromcode</i> to character encoding
-<i>tocode</i>. The conversion descriptor is stored in the
-memory pointed to by <i>resultp</i>.</p>
-
-<p style="margin-left:11%; margin-top: 1em">The values
-permitted for <i>fromcode</i> and <i>tocode</i> are the same
-as for the function <b>iconv_open</b>.</p>
-
-<p style="margin-left:11%; margin-top: 1em">After a
-successful return from this function, <i>resultp</i> can be
-be used as an <b>iconv_t</b> object with the <b>iconv</b>
-function.</p>
-
-<h2>RETURN VALUE
-<a name="RETURN VALUE"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">The
-<b>iconv_open_into</b> function fills <b>*</b><i>resultp</i>
-and returns 0 if it succeeds. In case of error, it sets
-<b>errno</b> and returns &minus;1.</p>
-
-<h2>ERRORS
-<a name="ERRORS"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">The following
-error can occur, among others:</p>
-
-<table width="100%" border="0" rules="none" frame="void"
-       cellspacing="0" cellpadding="0">
-<tr valign="top" align="left">
-<td width="11%"></td>
-<td width="9%">
-
-
-<p><b>EINVAL</b></p></td>
-<td width="2%"></td>
-<td width="78%">
-
-
-<p>The conversion from <i>fromcode</i> to <i>tocode</i> is
-not supported by the implementation.</p></td></tr>
-</table>
-
-<h2>CONFORMING TO
-<a name="CONFORMING TO"></a>
-</h2>
-
-
-<p style="margin-left:11%; margin-top: 1em">This function
-is implemented only in GNU libiconv and not in other
-<b>iconv</b> implementations. It is not backed by a
-standard. You can test for its presence through
-<b>(_LIBICONV_VERSION &gt;= 0x010D)</b>.</p>
-
-<h2>SEE ALSO
-<a name="SEE ALSO"></a>
-</h2>
-
-
-
-<p style="margin-left:11%; margin-top: 1em"><b>iconv_open</b>(3)
-<b>iconv</b>(3)</p>
-<hr>
+<!-- Creator     : groff version 1.15-j0.99  -->
+ -->
+<!-- Total number of pages: 1 -->
+<!-- Page: 1 -->
+<!-- left  margin: 100 -->
+<!-- right margin: 750 -->
+<a name="NAME"></a><h2>NAME</h2><p><font size=3>iconv_open_into - initialize descriptor for character set conversion</p>
+<a name="SYNOPSIS"></a><h2>SYNOPSIS</h2><a name="#include <iconv.h>"></a><h2>#include <iconv.h></h2><p><font size=3><B>int iconv_open_into (const char*</B> <font size=3><I>tocode</I><font size=3><B>, const char*</B> <font size=3><I>fromcode</I><font size=3><B>,<br>
+<span style=" text-indent: 0.6300in;"></span>iconv_allocation_t*</B> <font size=3><I>resultp</I><font size=3><B>);</p>
+</B><a name="DESCRIPTION"></a><h2>DESCRIPTION</h2><p><font size=3>The <font size=3><B>iconv_open_into</B> <font size=3>function initializes a conversion descriptor suitable for converting byte sequences from character encoding <font size=3><I>fromcode</I> <font size=3>to character encoding <font size=3><I>tocode</I><font size=3>. The conversion descriptor is stored in the memory pointed to by <font size=3><I>resultp</I><font size=3>.</p>
+<p><font size=3>The values permitted for <font size=3><I>fromcode</I> <font size=3>and <font size=3><I>tocode</I> <font size=3>are the same as for the function <font size=3><B>iconv_open</B><font size=3>.</p>
+<p><font size=3>After a successful return from this function, <font size=3><I>resultp</I> <font size=3>can be be used as an <font size=3><B>iconv_t</B> <font size=3>object with the <font size=3><B>iconv</B> <font size=3>function.</p>
+<a name="RETURN VALUE"></a><h2>RETURN VALUE</h2><p><font size=3>The <font size=3><B>iconv_open_into</B> <font size=3>function fills <font size=3><B>*</B><font size=3><I>resultp</I> <font size=3>and returns 0 if it succeeds. In case of error, it sets <font size=3><B>errno</B> <font size=3>and returns -1.</p>
+<a name="ERRORS"></a><h2>ERRORS</h2><p><font size=3>The following error can occur, among others:</p>
+<p><font size=3><B>EINVAL</B> <font size=3>The conversion from <font size=3><I>fromcode</I> <font size=3>to <font size=3><I>tocode</I> <font size=3>is not supported by the implementation.</p>
+<a name="CONFORMING TO"></a><h2>CONFORMING TO</h2><p><font size=3>This function is implemented only in GNU libiconv and not in other <font size=3><B>iconv</B> <font size=3>implementations. It is not backed by a standard. You can test for its presence through <font size=3><B>(_LIBICONV_VERSION &gt;= 0x010D)</B><font size=3>.</p>
+<a name="SEE ALSO"></a><h2>SEE ALSO</h2><p><font size=3><B>iconv_open</B><font size=3>(3) <font size=3><B>iconv</B><font size=3>(3)<br>
+</p>
 </body>
 </html>
