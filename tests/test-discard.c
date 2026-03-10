@@ -38,8 +38,7 @@ static void test_default (iconv_t cd)
     size_t inbytesleft = sizeof (input1);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input1) - inbytesleft == 1))
       abort ();
     if (!(sizeof (output) - outbytesleft == 1
@@ -52,8 +51,7 @@ static void test_default (iconv_t cd)
     size_t inbytesleft = sizeof (input2);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input2) - inbytesleft == 1))
       abort ();
     if (!(sizeof (output) - outbytesleft == 1
@@ -89,8 +87,7 @@ static void test_translit (iconv_t cd)
     size_t inbytesleft = sizeof (input1);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input1) - inbytesleft == 1))
       abort ();
     if (!(sizeof (output) - outbytesleft == 1
@@ -103,8 +100,7 @@ static void test_translit (iconv_t cd)
     size_t inbytesleft = sizeof (input2);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input2) - inbytesleft == 4))
       abort ();
     if (!(sizeof (output) - outbytesleft == 3
@@ -140,8 +136,7 @@ static void test_ignore (iconv_t cd)
     size_t inbytesleft = sizeof (input1);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     #ifdef _LIBICONV_VERSION
     if (!(ret == 1 && inbytesleft == 0))
       abort ();
@@ -159,8 +154,7 @@ static void test_ignore (iconv_t cd)
     size_t inbytesleft = sizeof (input2);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     #ifdef _LIBICONV_VERSION
     if (!(ret == 1 && inbytesleft == 0))
       abort ();
@@ -201,8 +195,7 @@ static void test_ignore_translit (iconv_t cd)
     size_t inbytesleft = sizeof (input1);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == 1 && inbytesleft == 0))
       abort ();
     if (!(sizeof (output) - outbytesleft == 4
@@ -215,8 +208,7 @@ static void test_ignore_translit (iconv_t cd)
     size_t inbytesleft = sizeof (input2);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == 1 && inbytesleft == 0))
       abort ();
     if (!(sizeof (output) - outbytesleft == 4
@@ -252,8 +244,7 @@ static void test_nid (iconv_t cd)
     size_t inbytesleft = sizeof (input1);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input1) - inbytesleft == 1))
       abort ();
     if (!(sizeof (output) - outbytesleft == 1
@@ -266,8 +257,7 @@ static void test_nid (iconv_t cd)
     size_t inbytesleft = sizeof (input2);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input2) - inbytesleft == 4))
       abort ();
     if (!(sizeof (output) - outbytesleft == 1
@@ -303,8 +293,7 @@ static void test_nid_translit (iconv_t cd)
     size_t inbytesleft = sizeof (input1);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input1) - inbytesleft == 1))
       abort ();
     if (!(sizeof (output) - outbytesleft == 1
@@ -317,8 +306,7 @@ static void test_nid_translit (iconv_t cd)
     size_t inbytesleft = sizeof (input2);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input2) - inbytesleft == 4))
       abort ();
     if (!(sizeof (output) - outbytesleft == 3
@@ -354,8 +342,7 @@ static void test_invd (iconv_t cd)
     size_t inbytesleft = sizeof (input1);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input1) - inbytesleft == 2))
       abort ();
     if (!(sizeof (output) - outbytesleft == 1
@@ -368,8 +355,7 @@ static void test_invd (iconv_t cd)
     size_t inbytesleft = sizeof (input2);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == (size_t)(-1) && errno == EILSEQ && sizeof (input1) - inbytesleft == 1))
       abort ();
     if (!(sizeof (output) - outbytesleft == 1
@@ -405,8 +391,7 @@ static void test_invd_translit (iconv_t cd)
     size_t inbytesleft = sizeof (input1);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == 1 && inbytesleft == 0))
       abort ();
     if (!(sizeof (output) - outbytesleft == 4
@@ -419,8 +404,7 @@ static void test_invd_translit (iconv_t cd)
     size_t inbytesleft = sizeof (input2);
     char *outbuf = output;
     size_t outbytesleft = sizeof (output);
-    size_t ret = iconv (cd, (ICONV_CONST char**)&inbuf, &inbytesleft,
-                        &outbuf, &outbytesleft);
+    size_t ret = iconv (cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
     if (!(ret == 1 && inbytesleft == 0))
       abort ();
     if (!(sizeof (output) - outbytesleft == 4
